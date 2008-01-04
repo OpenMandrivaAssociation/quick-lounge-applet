@@ -1,7 +1,7 @@
 Summary: GNOME Applications panel grouping applet
 Name: quick-lounge-applet
 Version: 2.12.4
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Group: Graphical desktop/GNOME
 URL: http://quick-lounge.sourceforge.net/
@@ -56,12 +56,12 @@ rm -rf %buildroot/var
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%post_install_gconf_schemas %name
+%post_install_gconf_schemas quick-lounge
 %update_scrollkeeper
 %update_icon_cache hicolor
 
 %preun
-%preun_uninstall_gconf_schemas %name
+%preun_uninstall_gconf_schemas quick-lounge
 
 %postun
 %clean_scrollkeeper
@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc NEWS AUTHORS ChangeLog
-%{_sysconfdir}/gconf/schemas/*
+%{_sysconfdir}/gconf/schemas/quick-lounge.schemas
 %{_libexecdir}/%name
 %{_libdir}/bonobo/servers/*
 %{_datadir}/gnome-2.0/ui/*
