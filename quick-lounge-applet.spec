@@ -1,7 +1,7 @@
 Summary: GNOME Applications panel grouping applet
 Name: quick-lounge-applet
-Version: 2.12.4
-Release: %mkrel 2
+Version: 2.12.5
+Release: %mkrel 1
 License: GPL
 Group: Graphical desktop/GNOME
 URL: http://quick-lounge.sourceforge.net/
