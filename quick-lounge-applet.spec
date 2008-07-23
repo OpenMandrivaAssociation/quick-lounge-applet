@@ -10,6 +10,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libpanel-applet-devel
 BuildRequires: gnome-menus-devel >= 2.12.0
 BuildRequires: gnome-desktop-devel
+BuildRequires: libglade2.0-devel
 BuildRequires: intltool
 BuildRequires: scrollkeeper
 Requires(post):		scrollkeeper >= 0.3
