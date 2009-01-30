@@ -1,11 +1,14 @@
 Summary: GNOME Applications panel grouping applet
 Name: quick-lounge-applet
 Version: 2.12.5
-Release: %mkrel 3
+Release: %mkrel 4
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://quick-lounge.sourceforge.net/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# http://bugzilla.gnome.org/show_bug.cgi?id=559584
+Patch: quick-lounge-applet-new-gnome-desktop.patch
+Patch1: quick-lounge-applet-2.12.5-format-strings.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libpanel-applet-devel
 BuildRequires: gnome-menus-devel >= 2.12.0
@@ -29,6 +32,9 @@ as separators.
 
 %prep
 %setup -q
+%patch -p1 -b .new-gnomedesktop
+%patch1 -p1 
+autoreconf
 
 %build
 
