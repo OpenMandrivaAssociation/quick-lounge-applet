@@ -16,6 +16,7 @@ BuildRequires: gnome-desktop-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: intltool
 BuildRequires: scrollkeeper
+BuildRequires: gnome-common
 Requires(post):		scrollkeeper >= 0.3
 Requires(postun):		scrollkeeper >= 0.3
 
