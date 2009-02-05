@@ -1,14 +1,11 @@
 Summary: GNOME Applications panel grouping applet
 Name: quick-lounge-applet
-Version: 2.12.5
-Release: %mkrel 4
+Version: 2.13.1
+Release: %mkrel 1
 License: GPLv2+
 Group: Graphical desktop/GNOME
 URL: http://quick-lounge.sourceforge.net/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-# http://bugzilla.gnome.org/show_bug.cgi?id=559584
-Patch: quick-lounge-applet-new-gnome-desktop.patch
-Patch1: quick-lounge-applet-2.12.5-format-strings.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libpanel-applet-devel
 BuildRequires: gnome-menus-devel >= 2.12.0
@@ -33,26 +30,22 @@ as separators.
 
 %prep
 %setup -q
-%patch -p1 -b .new-gnomedesktop
-%patch1 -p1 
-autoreconf
 
 %build
 
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+rm -rf $RPM_BUILD_ROOT %name.lang
 %makeinstall_std
 
 %find_lang %{name} --with-gnome
 %find_lang quick-lounge --with-gnome
 cat quick-lounge.lang >> %name.lang
-for omf in %buildroot%_datadir/omf/*/{*-??.omf,*-??_??.omf};do
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buildroot!!)" >> %name.lang
-done
+#for omf in %buildroot%_datadir/omf/*/{*-??.omf,*-??_??.omf};do
+#echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buildroot!!)" >> %name.lang
+#done
 
 # remove unpackaged files
 rm -f $RPM_BUILD_ROOT%{_libdir}/*.{la,a}
@@ -83,8 +76,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libexecdir}/%name
 %{_libdir}/bonobo/servers/*
 %{_datadir}/gnome-2.0/ui/*
-%dir %_datadir/omf/%name
-%_datadir/omf/%name/quick-lounge-C.omf
+#%dir %_datadir/omf/%name
+#%_datadir/omf/%name/quick-lounge-C.omf
 %_datadir/%name
 %_datadir/icons/hicolor/*/apps/%name.png
 
