@@ -4,7 +4,7 @@ Version: 2.14.1
 Release: %mkrel 2
 License: GPLv2+
 Group: Graphical desktop/GNOME
-URL: http://quick-lounge.sourceforge.net/
+URL: https://quick-lounge.sourceforge.net/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libpanel-applet-devel
