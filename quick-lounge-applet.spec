@@ -7,6 +7,11 @@ Group: Graphical desktop/GNOME
 URL: https://quick-lounge.sourceforge.net/
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: libpanel-applet-devel
 BuildRequires: gnome-menus-devel >= 2.12.0
 BuildRequires: gnome-desktop-devel
